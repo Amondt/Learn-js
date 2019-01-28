@@ -10,3 +10,10 @@ function calculResult (pointure, naissance) {
 
     return pointure;
 }
+function resteDivision(e){
+    var form = document.querySelector('#decimal-form');
+    console.log(form, e.target, e);
+    var nbre1 = Math.floor(form.premier_nombre.value);
+    var nbre2 = Math.floor(form.deuxieme_nombre.value);
+    alert((nbre1 % nbre2));
+}
