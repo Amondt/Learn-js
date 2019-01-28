@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Js Learning Environement</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/Javascript" src="js_function.js"></script>
+    <style>
+        .redSquare{
+            width: 100px;
+            height: 100px;
+            background: red;    
+        }
+        .green{
+            background-color: green;
+        }
+        .red{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        window.onload = () => {
+            document.querySelector("#form").addEventListener("submit", formSubmit);
+
+            function formSubmit(e){
+                e.preventDefault();
+                var nom = e.target.nom.value
+                var prenom = e.target.prenom.value
+                var ville = e.target.ville.value
+                alert("Nom : " + nom + "\nPrénom : " + prenom + "\nVille : " + ville);
+                console.log(nom + prenom + ville);
+            }
+
+            document.querySelector("#color").addEventListener("click", changeColor);
+
+            function changeColor(e){
+                e.preventDefault();
+                var button = document.querySelector(".button");
+                console.log(button.classList);
+                button.classList.toggle("green");
+                button.classList.toggle('red');
+                console.log(button.classList);
+            }
+
+            document.querySelector("#interrupt").addEventListener("click", toggleOnOff);
+
+            function toggleOnOff(e){
+                e.preventDefault();
+                var button = document.querySelector("#interrupt");
+                console.log(button.classList);
+                console.log(button.classList[0]);
+                console.log(button);
+                if (button.classList[0] == 'on') {
+                    button.innerHTML = "Off";
+                    document.querySelector("#color").removeEventListener("click", changeColor);
+                    button.classList.toggle("on");
+                    button.classList.toggle("off");
+                    console.log(button.innerHTML, button.classList[0]);
+                }
+                else if (button.classList[0] == 'off') {
+                    button.innerHTML = "On";
+                    document.querySelector("#color").addEventListener("click", changeColor);
+                    button.classList.toggle("on");
+                    button.classList.toggle("off");
+                    console.log(button.innerHTML, button.classList[0]);
+                }
+            }
+
+            var age = prompt("Quel est votre age?");
+            if (age > 18) {console.log("Vous etes majeur")}
+            else {console.log("Vous est mineur")}
+
+            // var pointure = prompt("Quel est votre pointure?");
+            // var naissance = prompt("Quel est votre année de naissance?");
+            // var resultat = calculResult(pointure, naissance);
+            // alert(resultat);
+            // console.log(resultat);
+
+            // var nombre1 = Math.floor(prompt("Entre un nombre a virgule"));
+            // var nombre2 = Math.floor(prompt('Entre un nombre a virgule'));
+            // console.log(nombre1, nombre2);
+            // alert("leur multiplication vaut " + (nombre1 * nombre2));
+            // resteDiv(nombre1, nombre2);
+
+        }
+    </script>
+    <form id="form">
+        <label for="nom">Nom : </label><input type="text" name="nom" id="nom"/>
+        <label for="prenom">Prénom : </label><input type="text" name="prenom" id="prenom"/>
+        <label for="ville">Ville : </label><input type="text" name="ville" id="ville"/>
+        <button  name="valider" id="valider" type="submit">Valider</button>
+    </form>
+
+    <button class="button green" id="color" name="color">Change color</button>
+    <button class="on" id="interrupt" name="interrupt">On</button>
+
+    <!-- <script>
+
+        var num = 50;
+        alert(num);
+        var nom = prompt("Quel est votre nom ?");
+        alert("Bonjour "+ nom);
+        var prenom = "Alex";
+        var ville = "Bruxelles";
+        alert("Nom : " + nom + "\nPrénom : " + prenom + "\nVille : " + ville);
+
+        var countdown = 3;
+        var p1 = prompt("Ecris-moi une phrase");
+        countdown -= 1;
+        alert("Il vous reste "+ countdown+ " phrase(s) à écrire");
+        var p2 = prompt("Ecris-moi une phrase");
+        countdown -= 1;
+        alert("Il vous reste "+ countdown+ " phrase(s) à écrire");
+        var p3 = prompt("Ecris-moi une phrase");
+        countdown -= 1;
+        alert("Il vous reste "+ countdown+ " phrase(s) à écrire");
+        alert("Voici votre histoire:\n"+ " " + p3 + " " + p2 + " " + p1), "\nElle n'est pas terrible!";
+        document.write("<h1>Mon titre est génial</h1>");
+        console.log("Ceci est un test");
+            
+    </script> -->
+</body>
+</html>
