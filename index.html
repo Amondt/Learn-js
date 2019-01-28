@@ -105,6 +105,8 @@
             document.querySelector('#reste-division').addEventListener("click", resteDivision);
 
             resultat = document.querySelector('#pointure').addEventListener('submit', calculResult);
+
+            document.querySelector('#test-age').addEventListener('submit', testAge);
         }
     </script>
 
@@ -128,6 +130,11 @@
     <form id="pointure">
         <label for="pointure">Pointure : </label><input type="text" id="pointure" name="pointure"/><br/>
         <label for="annee">Année de naissance : </label><input type="text" id="annee" name="annee"/><br/>
+        <button id="valider" name="valider">Valider</button>
+    </form>
+
+    <form id="test-age">
+        <label for="age">Votre âge : </label><input type="text" id="age" name="age"/><br/>
         <button id="valider" name="valider">Valider</button>
     </form>
 

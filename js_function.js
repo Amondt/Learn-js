@@ -22,3 +22,13 @@ function resteDivision(e){
     var nbre2 = Math.floor(form.deuxieme_nombre.value);
     alert((nbre1 % nbre2));
 }
+function testAge(e){
+    e.preventDefault();
+    var form = document.querySelector('#test-age');
+    if (form.age.value >= 18){
+        alert("Vous êtes majeur");
+    }
+    else if (form.age.value < 18){
+        alert("Vous êtes mineur");
+    }
+}
