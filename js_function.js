@@ -1,13 +1,18 @@
 function resteDiv (a, b) {
     alert("Le reste de leur division vaut " + (a%b));
 }
-function calculResult (pointure, naissance) {
+function calculResult (e) {
+    e.preventDefault();
+    var form = document.querySelector('#pointure');
+    var pointure = e.target.pointure.value;
+    var naissance = e.target.annee.value;
+    console.log(e.target.pointure.value);
     pointure *= 2;
     pointure += 5;
     pointure *= 50;
     pointure -= naissance;
     pointure += 1766;
-
+    console.log("le resultat est ", pointure);
     return pointure;
 }
 function resteDivision(e){

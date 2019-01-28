@@ -12,7 +12,7 @@
             margin: 40px;
         }
         body > button{
-            margin: 0px 40px 40px 40px;
+            margin: 0px 40px;
         }
         .redSquare{
             width: 100px;
@@ -103,6 +103,8 @@
             }
 
             document.querySelector('#reste-division').addEventListener("click", resteDivision);
+
+            resultat = document.querySelector('#pointure').addEventListener('submit', calculResult);
         }
     </script>
 
@@ -122,6 +124,12 @@
 
     <button class="button green" id="color" name="color">Change color</button>
     <button class="on" id="interrupt" name="interrupt">On</button>
+
+    <form id="pointure">
+        <label for="pointure">Pointure : </label><input type="text" id="pointure" name="pointure"/><br/>
+        <label for="annee">Année de naissance : </label><input type="text" id="annee" name="annee"/><br/>
+        <button id="valider" name="valider">Valider</button>
+    </form>
 
     <!-- <script>
 
