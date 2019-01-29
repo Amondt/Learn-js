@@ -1,13 +1,15 @@
 body {
   background-color: #ddd;
 }
-
-form {
+body button {
+  margin: 0px 40px;
+}
+body h3 {
   margin: 40px;
 }
 
-body button {
-  margin: 0px 40px;
+form {
+  margin: 40px;
 }
 
 .redSquare {
