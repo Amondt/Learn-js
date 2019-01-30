@@ -138,3 +138,43 @@ function calculMoyenne(e) {
         console.log(typeof entry, entry, numbers);
     }
 }
+function conversionTemperature(e) {
+    e.preventDefault();
+    var menu = 1;
+    while (menu != 0) {
+        var menu = parseInt(prompt('0. Fin du programme\n1. De Celsius vers Fahrenheit\n2. De Celsius vers Kelvin\n3. De Fahrenheit vers Celsius\n4. De Fahrenheit vers Kelvin\n5. De Kelvin vers Celsius\n6. De Kelvin vers Fahrenheit'));
+        console.log(menu);
+        if (menu == 1) {
+            var temp = parseInt(prompt('Quelle est la température (en degrés Celsius)?'));
+            var convers = temp * 9/5 + 32;
+            console.log(convers);
+            alert('Ca vaut ' + convers + ' °F');
+        } else if (menu == 2) {
+            var temp = parseInt(prompt('Quelle est la température (en degrés Celsius)?'));
+            var convers = temp + 273.15;
+            console.log(convers);
+            alert('Ca vaut ' + convers + ' K');
+        } else if (menu == 3) {
+            var temp = parseInt(prompt('Quelle est la température (en degrés Fahrenheit)?'));
+            var convers = (temp - 32) / (9/5);
+            console.log(convers);
+            alert('Ca vaut ' + convers + ' °C');
+        } else if (menu == 4) {
+            var temp = parseInt(prompt('Quelle est la température (en degrés Fahrenheit)?'));
+            var convers = ((temp - 32) * (5/9)) + 273.15;
+            console.log(convers);
+            alert('Ca vaut ' + convers + ' K');
+        } else if (menu == 5) {
+            var temp = parseInt(prompt('Quelle est la température (en degrés Kelvin)?'));
+            var convers = temp - 273.15;
+            console.log(convers);
+            alert('Ca vaut ' + convers + ' °C');
+        } else if (menu == 6) {
+            var temp = parseInt(prompt('Quelle est la température (en degrés Kelvin)?'));
+            var convers = (temp * 9/5) - 459.67;
+            console.log(convers);
+            alert('Ca vaut ' + convers + ' °F');
+        }
+    }
+
+}
