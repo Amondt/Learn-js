@@ -58,3 +58,11 @@ function affiche(e){
     alert(triple(a));
     alert(triple(b));
 }
+function afficheAdd(e){
+    e.preventDefault();
+    alert(additione(tab[0]));
+    alert(additione(tab[tab.length - 1]));
+}
+function additione(x){
+    return x+2;
+}
