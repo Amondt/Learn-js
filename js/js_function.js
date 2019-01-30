@@ -91,3 +91,8 @@ function faireChoix(e){
         alert('Pardon, que veux-tu?');
     }
 }
+function jourDeLaSemaine(e){
+    var date = new Date();
+    var jours = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
+    alert('Nous sommes ' + jours[date.getDay()]);
+}
