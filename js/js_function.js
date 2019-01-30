@@ -117,3 +117,24 @@ function somme(e){
     }
     alert('Le total des 3 nombres égal : ' + total);
 }
+function calculMoyenne(e) {
+    e.preventDefault();
+    var numbers = [];
+    var entry = 0;
+    while (!isNaN(entry)) {
+        entry = parseInt(prompt('Entre un nombre entier'));
+        if (entry >= 0) {
+            numbers.push(entry);
+        } else if (entry < 0) {
+            var moyenne = 0;
+            for (var i in numbers) {
+                console.log('\n', typeof i, i, numbers);
+                moyenne += numbers[i];
+            }
+            moyenne /= numbers.length;
+            alert('La moyenne du tableau vaut : ' + moyenne + '\nIl y a eu ' + numbers.length + ' valeurs.');
+            entry = NaN;
+        }
+        console.log(typeof entry, entry, numbers);
+    }
+}
