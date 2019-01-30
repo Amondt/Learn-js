@@ -78,3 +78,16 @@ function soustrait(x){
         return "Nombre négatif!";
     }
 }
+function faireChoix(e){
+    var choix = prompt('Choisis entre 1, 2 ou 3');
+    console.log(choix);
+    if (choix == 1){
+        alert('1. Merci');
+    } else if (choix == 2){
+        alert('2. Bonjour');
+    } else if (choix == 3){
+        alert('3. Au revoir');
+    } else {
+        alert('Pardon, que veux-tu?');
+    }
+}
