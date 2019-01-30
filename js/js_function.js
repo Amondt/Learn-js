@@ -176,5 +176,7 @@ function conversionTemperature(e) {
             alert('Ca vaut ' + convers + ' °F');
         }
     }
+}
+function calculIMC(e) {
 
 }
