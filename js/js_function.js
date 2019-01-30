@@ -108,3 +108,12 @@ function testWhile(e){
     }
     alert('Vous avez écrit :\n' + chaine);
 }
+function somme(e){
+    var total = 0;
+    for (i=0; i<3; i++) {
+        var nombre = prompt('Entre un nombre');
+        console.log(typeof nombre);
+        total += parseInt(nombre);
+    }
+    alert('Le total des 3 nombres égal : ' + total);
+}
