@@ -96,3 +96,15 @@ function jourDeLaSemaine(e){
     var jours = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
     alert('Nous sommes ' + jours[date.getDay()]);
 }
+function testWhile(e){
+    var char = '';
+    while (char != 'p'){
+        var chaine = prompt('Entre une chaîne de caractères qui contient la lettre \'p\'');
+        for (const lettre of chaine){
+            if (lettre == 'p'){
+                char = 'p';
+            }
+        }
+    }
+    alert('Vous avez écrit :\n' + chaine);
+}
