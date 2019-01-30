@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exe 04</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script type="text/Javascript" src="./js/js_function.js"></script>
+</head>
+<body>
+    <h3>Operations</h3>
+    <p>Soit b = 2</p>
+    <button id='b01'>a = b++;</button>
+    <button id='b02'>a = ++b;</button>
+    <button id='b03'>a = b--;</button>
+    <button id='b04'>a = --b;</button>
+    <button id='b05'>a = 1; a += b++;</button>
+    <button id='b06'>a = 1; a += ++b;</button>
+    <button id='b07'>a = 1; a -= b++;</button>
+    <button id='b08'>a = 1; a -= ++b;</button>
+    <button id='b09'>a = 1; a += b--;</button>
+    <button id='b10'>a = 1; a += --b;</button>
+
+    <script>
+            var b = 2;
+            document.querySelector('#b01').addEventListener('click', op01);
+            document.querySelector('#b02').addEventListener('click', op02);
+            document.querySelector('#b03').addEventListener('click', op03);
+            document.querySelector('#b04').addEventListener('click', op04);
+            document.querySelector('#b05').addEventListener('click', op05);
+            document.querySelector('#b06').addEventListener('click', op06);
+            document.querySelector('#b07').addEventListener('click', op07);
+            document.querySelector('#b08').addEventListener('click', op08);
+            document.querySelector('#b09').addEventListener('click', op09);
+            document.querySelector('#b10').addEventListener('click', op10);
+
+            function op01(e){
+                e.preventDefault();
+                var a = b++;
+                alert('a vaut : ' + a + '\nb vaut : ' + b);
+                b = 2;
+            }
+            function op02(e){
+                e.preventDefault();
+                var a = ++b;
+                alert('a vaut : ' + a + '\nb vaut : ' + b);
+                b = 2;
+            }
+            function op03(e){
+                e.preventDefault();
+                var a = b--;
+                alert('a vaut : ' + a + '\nb vaut : ' + b);
+                b = 2;
+            }
+            function op04(e){
+                e.preventDefault();
+                var a = --b;
+                alert('a vaut : ' + a + '\nb vaut : ' + b);
+                b = 2;
+            }
+            function op05(e){
+                e.preventDefault();
+                var a =1;
+                a += b++;
+                alert('a vaut : ' + a + '\nb vaut : ' + b);
+                b = 2;
+            }
+            function op06(e){
+                e.preventDefault();
+                var a = 1;
+                a += ++b;
+                alert('a vaut : ' + a + '\nb vaut : ' + b);
+                b = 2;
+            }
+            function op07(e){
+                e.preventDefault();
+                var a = 1;
+                a -= b++;
+                alert('a vaut : ' + a + '\nb vaut : ' + b);
+                b = 2;
+            }
+            function op08(e){
+                e.preventDefault();
+                var a = 1;
+                a -= ++b;
+                alert('a vaut : ' + a + '\nb vaut : ' + b);
+                b = 2;
+            }
+            function op09(e){
+                e.preventDefault();
+                var a = 1;
+                a += b--;
+                alert('a vaut : ' + a + '\nb vaut : ' + b);
+                b = 2;
+            }
+            function op10(e){
+                e.preventDefault();
+                var a = 1;
+                a += --b;
+                alert('a vaut : ' + a + '\nb vaut : ' + b);
+                b = 2;
+            }
+    </script>
+</body>
+</html>
