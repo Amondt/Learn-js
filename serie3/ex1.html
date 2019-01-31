@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Exe 01</title>
     <link rel="stylesheet" href="../css/style.css">
-    <script type="text/Javascript" src="./js/js_function.js"></script>
+    <script type="text/Javascript" src="../js/js_function.js"></script>
 </head>
 <body>
-    <h3>Rectangle informations</h3>
-    <button id='surf'>Surface</button>
-    <button id='peri'>Périmètre</button>
+    <img src="../img/image1.jpg" id="image1" />
     <script>
-            document.querySelector('#surf').addEventListener('click', surfaceRectangle);
-            document.querySelector('#peri').addEventListener('click', periRectangle);
+        window.onload = () => {
+            document.querySelector('#image1').addEventListener('mouseover', changeImg);
+            document.querySelector('#image1').addEventListener('mouseout', originImg);
+        }
     </script>
 </body>
 </html>

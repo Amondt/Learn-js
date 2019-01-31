@@ -210,3 +210,9 @@ function calculIMC(e) {
         alert('imc : ' + imc + ' | obésité morbide');
     }
 }
+function changeImg(e) {
+    document.querySelector('#image1').src = '../img/image1_2.jpg';
+}
+function originImg(e) {
+    document.querySelector('#image1').src = '../img/image1.jpg';
+}
