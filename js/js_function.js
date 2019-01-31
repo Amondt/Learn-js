@@ -178,5 +178,35 @@ function conversionTemperature(e) {
     }
 }
 function calculIMC(e) {
-
+    var poids = NaN;
+    var taille = NaN;
+    while (isNaN(poids)) {
+        poids = parseFloat(prompt('Quel est votre poids?'));
+        if (isNaN(poids)) {
+            console.log('Ceci n\'est pas un poids valide');
+        }
+    }
+    while (isNaN(taille)) {
+        taille = parseFloat(prompt('Quel est votre taille?'));
+        if (isNaN(taille)) {
+            console.log('Ceci n\'est pas une taille valide');
+        }
+    }
+    var imc = (poids / (Math.pow(taille, 2))).toFixed(2);
+    console.log(typeof poids, poids, typeof taille, taille, imc);
+    if (imc < 16.5) {
+        alert('imc : ' + imc + ' | dénutrition ou famine');
+    } else if ((16.5 <= imc) && (imc < 18.5)) {
+        alert('imc : ' + imc + ' | maigreur');
+    } else if (18.5 <= imc && imc < 25) {
+        alert('imc : ' + imc + ' | corpulence normale');
+    } else if (25 <= imc && imc < 30) {
+        alert('imc : ' + imc + ' | surpoids');
+    } else if (30 <= imc && imc < 35) {
+        alert('imc : ' + imc + ' | obésité modérée');
+    } else if (35 <= imc && imc < 40) {
+        alert('imc : ' + imc + ' | obésité sévère');
+    } else if (imc > 40) {
+        alert('imc : ' + imc + ' | obésité morbide');
+    }
 }
