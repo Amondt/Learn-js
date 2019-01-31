@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exe 02 | série 3</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="text/Javascript" src="../js/js_function.js"></script>
+</head>
+<body>
+    <form id='form'>
+        <label for="nom">Votre nom  : </label><input type="text" name="nom" value="" id="nom"/>
+    </form>
+    <script>
+        window.onload = () => {
+            document.querySelector('#form').addEventListener('submit', nameFormSubmit);
+        }
+    </script>
+</body>
+</html>

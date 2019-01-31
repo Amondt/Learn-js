@@ -216,3 +216,11 @@ function changeImg(e) {
 function originImg(e) {
     document.querySelector('#image1').src = '../img/image1.jpg';
 }
+function nameFormSubmit(e) {
+    e.preventDefault();
+    alert('Merci de votre participation');
+}
+function nameFormSubmitShow(e) {
+    e.preventDefault();
+    alert(document.querySelector('#form').nom.value);
+}
