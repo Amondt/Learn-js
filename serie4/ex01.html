@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exe 01</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="text/Javascript" src="../js/js_function.js"></script>
+</head>
+<body>
+    <img src="../img/image1.jpg" id="image1" />
+    <script>
+        window.onload = () => {
+            document.querySelector('#image1').addEventListener('mouseover', changeImg);
+            document.querySelector('#image1').addEventListener('mouseout', originImg);
+        }
+    </script>
+</body>
+</html>
