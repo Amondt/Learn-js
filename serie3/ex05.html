@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exe 05 | série 3</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="text/Javascript" src="../js/js_function.js"></script>
+</head>
+<body>
+    <div class="conteneur">
+        <img src="../img/image1.jpg" id="image1" />
+        <img src="../img/image2.jpg" id="image2" />
+        <img src="../img/image3.jpg" id="image3" />
+        <img src="../img/image4.jpg" id="image4" />
+        <img src="../img/image5.jpg" id="image5" />
+    </div>
+    <script>
+        window.onload = () => {
+            for (i=1; i<=5; i++) {
+                document.querySelector(`#image${i}`).addEventListener('mouseover', mouseoverImg);
+                document.querySelector(`#image${i}`).addEventListener('mouseout', mouseoutImg);
+            }
+        }
+    </script>
+</body>
+</html>

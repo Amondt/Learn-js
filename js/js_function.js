@@ -230,3 +230,12 @@ function eraseInput(e) {
     document.querySelector('#prenom').value = '';
     document.querySelector('#ville').value = '';
 }
+function mouseoverImg(e) {
+    e.preventDefault();
+    console.log('on  ' + e.target.id + typeof e.target.id);
+    e.target.src = `../img/${e.target.id}_2.jpg`;
+}
+function mouseoutImg(e) {
+    console.log('out ' + e.target.id + e.target.src);
+    e.target.src = `../img/${e.target.id}.jpg`;
+}
