@@ -224,3 +224,9 @@ function nameFormSubmitShow(e) {
     e.preventDefault();
     alert(document.querySelector('#form').nom.value);
 }
+function eraseInput(e) {
+    e.preventDefault();
+    document.querySelector('#nom').value = '';
+    document.querySelector('#prenom').value = '';
+    document.querySelector('#ville').value = '';
+}
