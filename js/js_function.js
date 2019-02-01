@@ -251,3 +251,20 @@ function showText(e) {
 function hideText(e) {
     document.querySelector('#texte').style.visibility = "hidden";
 }
+function changeColorText(e) {
+    console.log(e.target, e.target.className);
+    var texte = document.querySelector('p');
+    if (e.target.className.includes("green")) {
+        console.log(e.target.className.includes("green"))
+        texte.style.border = "5px solid green";
+        texte.style.color = 'green';
+    } else if (e.target.className.includes("red")) {
+        console.log(e.target.className.includes("red"))
+        texte.style.border = "5px solid red";
+        texte.style.color = 'red';
+    } else if (e.target.className.includes("blue")) {
+        console.log(e.target.className.includes("blue"))
+        texte.style.border = "5px solid blue";
+        texte.style.color = 'blue';
+    }
+}

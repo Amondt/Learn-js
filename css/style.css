@@ -34,4 +34,15 @@ form {
   background-color: red;
 }
 
+.blue {
+  background-color: blue;
+}
+
+.color {
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+}
+
 /*# sourceMappingURL=style.css.map */
