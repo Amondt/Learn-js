@@ -268,3 +268,17 @@ function changeColorText(e) {
         texte.style.color = 'blue';
     }
 }
+function matchPwd(e) {
+    e.preventDefault();
+    var input1 = document.querySelector('#motdepasse');
+    var input2 = document.querySelector('#confirmation');
+    console.log(input1.value, typeof input1.value);
+    console.log(input2.value, typeof input2.value);
+    if (input1.value == input2.value && input1.value != "") {
+        input1.style.border = "2px solid green";
+        input2.style.border = "2px solid green";
+    } else if (input1.value != input2.value) {
+        input1.style.border = "2px solid red";
+        input2.style.border = "2px solid red";
+    }
+}
