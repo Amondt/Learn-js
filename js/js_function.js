@@ -239,3 +239,9 @@ function mouseoutImg(e) {
     console.log('out ' + e.target.id + e.target.src);
     e.target.src = `../img/${e.target.id}.jpg`;
 }
+function addBorder(e) {
+    e.target.style.border = "3px solid red";
+}
+function removeBorder(e) {
+    e.target.style.border = "";
+}
