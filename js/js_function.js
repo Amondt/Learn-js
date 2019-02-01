@@ -245,3 +245,9 @@ function addBorder(e) {
 function removeBorder(e) {
     e.target.style.border = "";
 }
+function showText(e) {
+    document.querySelector('#texte').style.visibility = "visible";
+}
+function hideText(e) {
+    document.querySelector('#texte').style.visibility = "hidden";
+}
