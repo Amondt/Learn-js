@@ -11,14 +11,51 @@
     <canvas id='game' width='1000px' height='600px' style='border: 5px solid #999; background-color: #000; display: block; margin:auto;'>
     Your browser doesn't support HTML5 canvas tag</canvas>
     <script>
+        // Robot image
         var robot = new Image();
         robot.src = '../img/robotic.svg';
-        robot.width = 100;
-        window.onload = () => {
-            ctx = document.querySelector('#game').getContext('2d');
-            ctx.drawImage(robot, 500, 480, 100, 100 * robot.width / robot.height * 7);
+        robot.width= 387;
+        robot.height= 512;
+        var xCoordRobot = 465;
+        // Alien image
+        var alien = new Image();
+        // Shoot image
+        var shoot = new Image();
+
+        function leftArrowPressed() {
+            ctx.clearRect(0, 0, 1000, 600);
+            xCoordRobot -= 1;
+            ctx.drawImage(robot, xCoordRobot, 500, 70, 70*(robot.height/robot.width));
+            console.log('left', xCoordRobot);
         }
-    
+        function rightArrowPressed() {
+            ctx.clearRect(0, 0, 1000, 600);
+            xCoordRobot += 1;
+            ctx.drawImage(robot, xCoordRobot, 500, 70, 70*(robot.height/robot.width));
+            console.log('right', xCoordRobot);
+        } 
+        function moveSelection(e) {  
+            e.preventDefault();
+            console.log('keydown', e.keyCode)  ;             
+            switch (e.keyCode) {
+                case 37:
+                    for (i=0; i<20; i+=1) {
+                        setTimeout("leftArrowPressed()", 10);
+                    }  
+                break;
+                case 39:
+                    rightArrowPressed();
+                break;
+            }
+        }  
+
+        window.onload = () => {
+            // Draw init
+            ctx = document.querySelector('#game').getContext('2d');
+            ctx.drawImage(robot, 465, 500, 70, 70*(robot.height/robot.width));
+
+            document.addEventListener('keydown', moveSelection, false);
+        }
     </script>
 </body>
 </html>
