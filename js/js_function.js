@@ -269,7 +269,7 @@ function changeColorText(e) {
     }
 }
 function matchPwd(e) {
-    e.preventDefault();
+    e.preventDefault(); 
     var input1 = document.querySelector('#motdepasse');
     var input2 = document.querySelector('#confirmation');
     console.log(input1.value, typeof input1.value);
