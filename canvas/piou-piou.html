@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Piou-Piou | 2d shooter</title>
+</head>
+<body>
+    <h1 style='text-align: center'>Piou-Piou</h1>
+    <canvas id='game' width='1000px' height='600px' style='border: 5px solid #999; background-color: #000; display: block; margin:auto;'>
+    Your browser doesn't support HTML5 canvas tag</canvas>
+    <script>
+        var robot = new Image();
+        robot.src = '../img/robotic.svg';
+        robot.width = 100;
+        window.onload = () => {
+            ctx = document.querySelector('#game').getContext('2d');
+            ctx.drawImage(robot, 500, 480, 100, 100 * robot.width / robot.height * 7);
+        }
+    
+    </script>
+</body>
+</html>

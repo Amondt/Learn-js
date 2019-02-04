@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Piou-Piou | 2d shooter</title>
+</head>
+<body>
+    <h1 style='text-align: center'>Piou-Piou</h1>
+    <canvas id='game' width='1000px' height='600px' style='border: 5px solid #999; background-color: #000; display: block; margin:auto;'>
+    Your browser doesn't support HTML5 canvas tag</canvas>
+    <div class="test">
+        <img src="../img/robotic.svg" width="387" height="512">
+    </div>
+    <script>
+        // Robot image
+        var robot = new Image();
+        robot.src = '../img/robotic.svg';
+        robot.width = 387;
+        robot.height = 512;
+        // Alien image
+        var alien = new Image();
+        // Shoot image
+        var shoot = new Image();
+
+        // Draw init
+        ctx = document.querySelector('#game').getContext('2d');
+        ctx.drawImage('../img/robotic.svg', 100, 100);
+        console.log(ctx);
+        console.log(robot)
+
+        // window.onload = () => {
+        //     function leftArrowPressed() {
+        //     console.log('left');
+        //     var element = document.getElementById("image1");
+        //     element.style.left = parseInt(element.style.left) - 5 + 'px';
+        //     }
+        //     function rightArrowPressed() {
+        //         console.log('right');
+        //         var element = document.getElementById("image1");
+        //         element.style.left = parseInt(element.style.left) + 5 + 'px';
+        //     }
+        //     function moveSelection(e) {  
+        //         e.preventDefault();
+        //         console.log('keydown', e.keyCode) ;                 
+        //         switch (e.keyCode) {
+        //             case 37:
+        //                 leftArrowPressed();
+        //             break;
+        //             case 39:
+        //                 rightArrowPressed();
+        //             break;
+        //         }
+        //     }
+
+        //     document.querySelector('#game').addEventListener('keydown', moveSelection);
+        // }
+    </script>
+</body>
+</html>
