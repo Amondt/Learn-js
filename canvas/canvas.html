@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canvas | Piou-piou</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <h1>Challenge</h1>
+    <div id="challenge">
+        <div>
+            <h3>Drapeau</h3>
+            <canvas id="drap" width='200px' height='200px' style='border:1px solid #000;padding:10px;'>Your browser doesn't support Html5 canvas tag</canvas>
+        </div>
+        <div>
+            <h3>Bateau</h3>
+            <canvas id='boat' width='200px' height='200px' style='border:1px solid #000;padding:10px;'>Your browser doens't support HTML5 canvas tag</canvas>
+        </div>
+        <div>
+            <h3>Maison</h3>
+            <canvas id='house' width='200px' height='200px' style='border:1px solid #000;padding:10px;'>Your browser doens't support HTML5 canvas tag</canvas>
+        </div>
+        <div>
+            <h3>Bonhomme</h3>
+            <canvas id='man' width='200px' height='200px' style='border:1px solid #000;padding:10px;'>Your browser doens't support HTML5 canvas tag</canvas>
+        </div>
+    </div>
+    <script>
+        window.onload = () => {
+            // Flag
+            var c = document.querySelector('#drap');
+            var ctx = c.getContext('2d');
+            // black part
+            ctx.beginPath();
+            ctx.moveTo(25, 50);
+            ctx.lineTo(25, 150);
+            ctx.lineTo(75, 150);
+            ctx.lineTo(75, 50);
+            ctx.lineTo(25, 50);
+            ctx.fillStyle = "black";
+            ctx.fill();
+            // ctx.closePath();
+            // yellow part
+            ctx.beginPath();
+            ctx.moveTo(75, 50);
+            ctx.lineTo(75, 150);
+            ctx.lineTo(125, 150);
+            ctx.lineTo(125, 50);
+            ctx.lineTo(75, 50);
+            ctx.fillStyle = "yellow";
+            ctx.fill();
+            // ctx.closePath();
+            // red part
+            ctx.beginPath();
+            ctx.moveTo(125, 50);
+            ctx.lineTo(125, 150);
+            ctx.lineTo(175, 150);
+            ctx.lineTo(175, 50);
+            ctx.lineTo(125, 50);
+            ctx.fillStyle = "red";
+            ctx.fill();
+            // ctx.closePath();
+
+            // Boat
+            c = document.querySelector('#boat');
+            ctx = c.getContext('2d');
+            ctx.beginPath();
+            ctx.moveTo(25, 125);
+            ctx.quadraticCurveTo(100, 200, 175, 125);
+            ctx.lineTo(25, 125);
+            ctx.moveTo(100, 125);
+            ctx.lineTo(100, 25);
+            ctx.lineTo(175, 100);
+            ctx.lineTo(100, 100);
+            ctx.fillStyle = "#222";
+            ctx.strokeStyle = '#222';
+            ctx.lineWidth = 5;
+            ctx.lineJoin = 'round';
+            ctx.lineCap = 'round';
+            ctx.fill();
+            ctx.stroke();
+
+            // House
+            c = document.querySelector('#house');
+            ctx = c.getContext('2d');
+            // Structure
+            ctx.beginPath();
+            ctx.lineWidth = 2;
+            ctx.moveTo(25, 75);
+            ctx.lineTo(100, 0);
+            ctx.lineTo(175, 75);
+            ctx.lineTo(25, 75);
+            ctx.stroke();
+            ctx.strokeRect(25, 75, 150, 125);
+            // Porte | Fenêtres
+            ctx.strokeRect(90, 160, 20, 40);
+            ctx.strokeRect(45, 100, 30, 30);
+            ctx.strokeRect(125, 100, 30, 30);
+
+            // Man
+            c = document.querySelector('#man');
+            ctx = c.getContext('2d');
+            // Head
+            ctx.arc(100, 31, 30, 0, Math.PI*2, true);
+            // Left eye
+            ctx.moveTo(90, 20);
+            ctx.arc(85, 20, 5, 0, Math.PI*2, true);
+            // Right eye
+            ctx.moveTo(120, 20);
+            ctx.arc(115, 20, 5, 0, Math.PI*2, true);
+            // Mouth
+            ctx.moveTo(85, 40);
+            ctx.quadraticCurveTo(100, 55, 115, 40);
+            // Body
+            ctx.moveTo(100, 61);
+            ctx.lineTo(100, 150);
+            // Right leg
+            ctx.lineTo(75, 200);
+            // Left leg
+            ctx.moveTo(100, 150);
+            ctx.lineTo(125, 200);
+            // Left arm
+            ctx.moveTo(100, 61);
+            ctx.lineTo(75, 100);
+            // Right arm
+            ctx.moveTo(100, 61);
+            ctx.lineTo(125, 100);
+            ctx.stroke();
+        }
+    </script>
+</body>
+</html>

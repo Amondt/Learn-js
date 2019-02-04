@@ -1,6 +1,7 @@
 * {
   text-decoration: none;
   color: #111;
+  box-sizing: border-box;
 }
 
 body {
@@ -14,6 +15,17 @@ body h3 {
 }
 body p {
   margin: 40px;
+}
+body h1 {
+  margin: 40px;
+}
+body canvas {
+  margin: 0 40px;
+}
+
+#challenge {
+  display: flex;
+  flex-direction: row;
 }
 
 form {
