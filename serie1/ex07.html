@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exe 07</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="text/Javascript" src="../js/js_function.js"></script>
+</head>
+<body>
+    <h3>Test birthdate | shoe size</h3>
+    <form id="pointure">
+        <label for="pointure">Pointure : </label><input type="text" id="pointure" name="pointure"/><br/>
+        <label for="annee">Année de naissance : </label><input type="text" id="annee" name="annee"/><br/>
+        <button id="valider" name="valider">Valider</button>
+    </form>
+    <script>
+        resultat = document.querySelector('#pointure').addEventListener('submit', calculResult);
+    </script>
+</body>
+</html>

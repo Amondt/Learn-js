@@ -1,3 +1,48 @@
+function formSubmit(e){
+    e.preventDefault();
+    var nom = e.target.nom.value;
+    var prenom = e.target.prenom.value;
+    var ville = e.target.ville.value;
+    alert("Nom : " + nom + "\nPrénom : " + prenom + "\nVille : " + ville);
+    console.log(nom + prenom + ville);
+}
+function changeColor(e){
+    e.preventDefault();
+    var button = document.querySelector(".button");
+    console.log(button.classList);
+    button.classList.toggle("green");
+    button.classList.toggle('red');
+    console.log(button.classList);
+}
+function toggleOnOff(e){
+    e.preventDefault();
+    var button = document.querySelector("#interrupt");
+    console.log(button.classList);
+    console.log(button.classList[0]);
+    console.log(button);
+    if (button.classList[0] == 'on') {
+        button.innerHTML = "Off";
+        document.querySelector("#color").removeEventListener("click", changeColor);
+        button.classList.toggle("on");
+        button.classList.toggle("off");
+        console.log(button.innerHTML, button.classList[0]);
+    }
+    else if (button.classList[0] == 'off') {
+        button.innerHTML = "On";
+        document.querySelector("#color").addEventListener("click", changeColor);
+        button.classList.toggle("on");
+        button.classList.toggle("off");
+        console.log(button.innerHTML, button.classList[0]);
+    }
+}
+function multiplication(e){
+    e.preventDefault();
+    var form = document.querySelector('#decimal-form');
+    console.log(form, e.target, e);
+    var nbre1 = Math.floor(form.premier_nombre.value);
+    var nbre2 = Math.floor(form.deuxieme_nombre.value);
+    alert((nbre1 * nbre2));
+}
 function resteDiv (a, b) {
     alert("Le reste de leur division vaut " + (a%b));
 }

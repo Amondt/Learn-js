@@ -24,13 +24,13 @@
 
         function leftArrowPressed() {
             ctx.clearRect(0, 0, 1000, 600);
-            xCoordRobot -= 1;
+            xCoordRobot -= 10;
             ctx.drawImage(robot, xCoordRobot, 500, 70, 70*(robot.height/robot.width));
             console.log('left', xCoordRobot);
         }
         function rightArrowPressed() {
             ctx.clearRect(0, 0, 1000, 600);
-            xCoordRobot += 1;
+            xCoordRobot += 10;
             ctx.drawImage(robot, xCoordRobot, 500, 70, 70*(robot.height/robot.width));
             console.log('right', xCoordRobot);
         } 
@@ -39,9 +39,7 @@
             console.log('keydown', e.keyCode)  ;             
             switch (e.keyCode) {
                 case 37:
-                    for (i=0; i<20; i+=1) {
-                        setTimeout("leftArrowPressed()", 10);
-                    }  
+                    leftArrowPressed();
                 break;
                 case 39:
                     rightArrowPressed();

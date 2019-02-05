@@ -9,117 +9,12 @@
     <script type="text/Javascript" src="./js/js_function.js"></script>
 </head>
 <body>
-    <script>
-        window.onload = () => {
-            document.querySelector("#form").addEventListener("submit", formSubmit);
-
-            function formSubmit(e){
-                e.preventDefault();
-                var nom = e.target.nom.value;
-                var prenom = e.target.prenom.value;
-                var ville = e.target.ville.value;
-                alert("Nom : " + nom + "\nPrénom : " + prenom + "\nVille : " + ville);
-                console.log(nom + prenom + ville);
-            }
-
-            document.querySelector("#color").addEventListener("click", changeColor);
-
-            function changeColor(e){
-                e.preventDefault();
-                var button = document.querySelector(".button");
-                console.log(button.classList);
-                button.classList.toggle("green");
-                button.classList.toggle('red');
-                console.log(button.classList);
-            }
-
-            document.querySelector("#interrupt").addEventListener("click", toggleOnOff);
-
-            function toggleOnOff(e){
-                e.preventDefault();
-                var button = document.querySelector("#interrupt");
-                console.log(button.classList);
-                console.log(button.classList[0]);
-                console.log(button);
-                if (button.classList[0] == 'on') {
-                    button.innerHTML = "Off";
-                    document.querySelector("#color").removeEventListener("click", changeColor);
-                    button.classList.toggle("on");
-                    button.classList.toggle("off");
-                    console.log(button.innerHTML, button.classList[0]);
-                }
-                else if (button.classList[0] == 'off') {
-                    button.innerHTML = "On";
-                    document.querySelector("#color").addEventListener("click", changeColor);
-                    button.classList.toggle("on");
-                    button.classList.toggle("off");
-                    console.log(button.innerHTML, button.classList[0]);
-                }
-            }
-
-            // var age = prompt("Quel est votre age?");
-            // if (age > 18) {console.log("Vous etes majeur")}
-            // else {console.log("Vous est mineur")}
-
-            // var pointure = prompt("Quel est votre pointure?");
-            // var naissance = prompt("Quel est votre année de naissance?");
-            // var resultat = calculResult(pointure, naissance);
-            // alert(resultat);
-            // console.log(resultat);
-
-            // var nombre1 = Math.floor(prompt("Entre un nombre a virgule"));
-            // var nombre2 = Math.floor(prompt('Entre un nombre a virgule'));
-            // console.log(nombre1, nombre2);
-            // alert("leur multiplication vaut " + (nombre1 * nombre2));
-            // resteDiv(nombre1, nombre2);
-
-            document.querySelector('#multiplication').addEventListener("click", multiplication);
-            function multiplication(e){
-                e.preventDefault();
-                var form = document.querySelector('#decimal-form');
-                console.log(form, e.target, e);
-                var nbre1 = Math.floor(form.premier_nombre.value);
-                var nbre2 = Math.floor(form.deuxieme_nombre.value);
-                alert((nbre1 * nbre2));
-            }
-
-            document.querySelector('#reste-division').addEventListener("click", resteDivision);
-
-            resultat = document.querySelector('#pointure').addEventListener('submit', calculResult);
-
-            document.querySelector('#test-age').addEventListener('submit', testAge);
-        }
-    </script>
-
     <h1>Exercices série 1</h1>
-
-    <form id="form">
-        <label for="nom">Nom : </label><input type="text" name="nom" id="nom"/>
-        <label for="prenom">Prénom : </label><input type="text" name="prenom" id="prenom"/>
-        <label for="ville">Ville : </label><input type="text" name="ville" id="ville"/>
-        <button  id="valider" name ="valider">Valider</button>
-    </form>
-
-    <form id="decimal-form">
-        <label for="premier_nombre">Premier nombre : </label><input type="text" id="premier_nombre" name="premier_nombre"/><br/>
-        <label for="deuxieme_nombre">Deuxième nombre : </label><input type="text" id="deuxieme_nombre" name="deuxieme_nombre"/><br/>
-        <button  name="multiplication" id="multiplication" type="submit">Multiplication</button>
-        <button  name="reste-division" id="reste-division" type="submit">Reste Division</button>
-    </form>
-
-    <button class="button green" id="color" name="color">Change color</button>
-    <button class="on" id="interrupt" name="interrupt">On</button>
-
-    <form id="pointure">
-        <label for="pointure">Pointure : </label><input type="text" id="pointure" name="pointure"/><br/>
-        <label for="annee">Année de naissance : </label><input type="text" id="annee" name="annee"/><br/>
-        <button id="valider" name="valider">Valider</button>
-    </form>
-
-    <form id="test-age">
-        <label for="age">Votre âge : </label><input type="text" id="age" name="age"/><br/>
-        <button id="valider" name="valider">Valider</button>
-    </form>
+    <button><a href="serie1/ex04.html">exe 04</a></button>
+    <button><a href="serie1/ex05-06.html">exe 05|06</a></button>
+    <button><a href="serie1/ex07.html">exe 07</a></button>
+    <button><a href="serie1/ex08.html">exe 08</a></button>
+    <button><a href="serie1/exSupp.html">exe suppl</a></button>
 
     <h1>Exercices série 2</h1>
     <button><a href="serie2/ex01.html">exe 01</a></button>

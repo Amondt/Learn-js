@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exe 05/06</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="text/Javascript" src="../js/js_function.js"></script>
+</head>
+<body>
+    <h3>Decimal numbers | multiply / rest of division</h3>
+    <form id="decimal-form">
+        <label for="premier_nombre">Premier nombre : </label><input type="text" id="premier_nombre" name="premier_nombre"/><br/>
+        <label for="deuxieme_nombre">Deuxième nombre : </label><input type="text" id="deuxieme_nombre" name="deuxieme_nombre"/><br/>
+        <button  name="multiplication" id="multiplication" type="submit">Multiplication</button>
+        <button  name="reste-division" id="reste-division" type="submit">Reste Division</button>
+    </form>
+    <script>
+        document.querySelector('#multiplication').addEventListener("click", multiplication);
+        document.querySelector('#reste-division').addEventListener("click", resteDivision);
+    </script>
+</body>
+</html>
