@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Piou-Piou | 2d shooter</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body onload='startGame()'>
+    <h1 style='text-align: center'>Piou-Piou</h1>
+    <script>
+        // Robot image
+        var robotImg = new Image(387, 512);
+        robotImg.src = '../img/robotic.svg';
+        // Alien image
+        var alienImg = new Image(437, 512);
+        alienImg.src = '../img/monster.svg';
+        // Star shoot image
+        var shootImg = new Image(243, 688);
+        shootImg.src = '../img/shooting-star.svg';
+
+        var robot, alien, shoot;
+
+        function startGame() {
+            robot = new component(robotImg, 70, 70*(robotImg.height/robotImg.width), 465, 500);
+            alien = new component(alienImg, 70, 70*(alienImg.height/alienImg.width), 0, 500);
+            shoot = new component(shootImg, 20, 20*(shootImg.height/shootImg.width), (robot.x+25), (robot.y-20));
+            gameArea.start();
+        }
+        var gameArea = {
+            canvas : document.createElement('canvas'),
+            start : function() {
+                this.canvas.width = 1000;
+                this.canvas.height = 600;
+                this.context = this.canvas.getContext('2d');
+                this.canvas.id = 'game';
+                document.body.insertBefore(this.canvas, document.body.childNodes[2]);
+                this.interval = setInterval(updateGameArea, 20);
+                window.addEventListener('keydown', function(e) {
+                    gameArea.key = e.keyCode;
+                })
+                window.addEventListener('keyup', function(e) {
+                    gameArea.key = false;
+                })
+            },
+            clear : function() {
+                this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            },
+            stop : function() {
+                clearInterval(this.interval);
+            }
+        }
+        function component(img, width, height, x, y) {
+            this.img = img;
+            this.width = width;
+            this.height = height;
+            this.x = x;
+            this.y = y;
+            this.speedX = 0;
+            this.speedY = 0;
+            this.update = function() {
+                ctx = gameArea.context;
+                ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+            }
+            this.newPos = function() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+            }
+            this.crashWith = function(otherObj) {
+                var left = this.x;
+                var right = this.x + (this.width);
+                var top = this.y;
+                var bot = this.y + (this.height);
+                var otherLeft = otherObj.x;
+                var otherRight = otherObj.x + (otherObj.width);
+                var otherTop = otherObj.y;
+                var otherBot = otherObj.y + (otherObj.height);
+                var crash = true;
+                if ((bot < otherTop) || (top > otherBot) || (right < otherLeft) || (left > otherRight)) {
+                    crash = false;
+                }
+                return crash;
+            }
+            this.shootStar = function() {
+                shoot = new component(shootImg, 20, 20*(shootImg.height/shootImg.width), (robot.x+25), (robot.y-20));
+                shoot.update();
+            }
+        }
+        function updateGameArea() {
+            if (shoot.crashWith(alien)) {
+                gameArea.stop();
+            } else {
+                gameArea.clear();
+                robot.speedX = 0;
+                robot.speedY = 0;
+                if (gameArea.key && gameArea.key == 37) {robot.speedX = -2;}
+                if (gameArea.key && gameArea.key == 39) {robot.speedX = 2;}
+                if (gameArea.key && gameArea.key == 32) {
+                    robot.shootStar();
+                    console.log('space');
+                }
+                robot.newPos();
+                robot.update();
+                alien.update();
+            }
+        }
+    </script>
+</body>
+</html>
