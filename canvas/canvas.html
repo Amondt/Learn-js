@@ -24,8 +24,9 @@
         </div>
         <div>
             <h3>Bonhomme</h3>
-            <canvas id='man' width='200px' height='200px' style='border:1px solid #000;padding:10px;'>Your browser doens't support HTML5 canvas tag</canvas>
+            <canvas id='man' width='200px' height='200px' style='border:1px solid #000;padding:10px;background:#000;'>Your browser doens't support HTML5 canvas tag</canvas>
         </div>
+        <img id="robotic"src="../img/robotic.svg" alt="robot" style='display:none;'>
     </div>
     <script>
         window.onload = () => {
@@ -39,9 +40,9 @@
             ctx.lineTo(75, 150);
             ctx.lineTo(75, 50);
             ctx.lineTo(25, 50);
-            ctx.fillStyle = "black";
             ctx.fill();
-            // ctx.closePath();
+            ctx.fillStyle = "black";
+            ctx.closePath();
             // yellow part
             ctx.beginPath();
             ctx.moveTo(75, 50);
@@ -128,6 +129,9 @@
             ctx.moveTo(100, 61);
             ctx.lineTo(125, 100);
             ctx.stroke();
+            ctx.clearRect(0, 0, 200, 200);
+
+            ctx.drawImage(document.querySelector('#robotic'), 0, 0, 200, 200);
         }
     </script>
 </body>

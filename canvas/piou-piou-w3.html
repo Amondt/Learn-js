@@ -6,9 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Piou-Piou | 2d shooter</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
+    <style>
+        * {
+            text-align: center;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 700;
+        }
+        h1 {
+            font-size: 50px;
+        }
+    </style>
 </head>
-<body onload='startGame()'>
-    <h1 style='text-align: center'>Piou-Piou</h1>
+<body onload='startMenu()'>
+    <div id="menu" width="1000" height="600">
+        <h1>Robot Shooter 2d | Piou-Piou</h1>
+        <button id='start'>Start</button>
+    </div>
     <script>
         // Robot image
         var robotImg = new Image(387, 512);
@@ -22,27 +36,39 @@
 
         var robot, alien, shoot;
 
+        function startMenu() {
+            document.querySelector('#start').addEventListener('click', () => {
+                document.querySelector('#menu').style.display = 'none';
+                startGame();
+            })
+        }
+        
         function startGame() {
             robot = new component(robotImg, 70, 70*(robotImg.height/robotImg.width), 465, 500);
-            alien = new component(alienImg, 70, 70*(alienImg.height/alienImg.width), 0, 500);
-            // shoot = new component(shootImg, 20, 20*(shootImg.height/shootImg.width), (robot.x+25), (robot.y-20));
+            alien = new component(alienImg, 70, 70*(alienImg.height/alienImg.width), Math.floor((Math.random()*930)+1), Math.floor((Math.random() * 250)+1));
+            shoot = new component(shootImg, 20, 20*(shootImg.height/shootImg.width), (robot.x+25), 600);
+            shoot2 = new component(shootImg, 20, 20*(shootImg.height/shootImg.width), (robot.x+25), 600);
             gameArea.start();
         }
         var gameArea = {
             canvas : document.createElement('canvas'),
             start : function() {
+                this.count = 1;
                 this.canvas.width = 1000;
                 this.canvas.height = 600;
                 this.context = this.canvas.getContext('2d');
                 this.canvas.id = 'game';
-                document.body.insertBefore(this.canvas, document.body.childNodes[2]);
+                document.body.insertBefore(this.canvas, document.body.childNodes[1]);
                 this.interval = setInterval(updateGameArea, 20);
+                gameArea.keys = (gameArea.keys || []);
                 window.addEventListener('keydown', function(e) {
-                    gameArea.keys = (gameArea.keys || []);
                     gameArea.keys[e.keyCode] = true;
                 })
                 window.addEventListener('keyup', function(e) {
                     gameArea.keys[e.keyCode] = false;
+                })
+                window.addEventListener('keypress', function(e) {
+                    gameArea.shootPress = true;
                 })
             },
             clear : function() {
@@ -50,6 +76,12 @@
             },
             stop : function() {
                 clearInterval(this.interval);
+            },
+            winDisplay : function() {
+                this.context.font = "200px Raleway";
+                this.context.fillStyle = "#fefefe";
+                this.context.textAlign = 'center';
+                this.context.fillText("You Win", this.canvas.width/2, this.canvas.height/2+50);
             }
         }
         function component(img, width, height, x, y) {
@@ -88,24 +120,58 @@
                 return crash;
             }
             this.shootStar = function() {
-                shoot = new component(shootImg, 20, 20*(shootImg.height/shootImg.width), (robot.x+25), (robot.y-20));
+                if (shoot.y < 50) {
+                    shoot = new component(shootImg, 20, 20*(shootImg.height/shootImg.width), (robot.x+25), (robot.y-20));
+                    shoot.speedY = -15;
+                } else if (shoot.y == 600) {
+                    shoot = new component(shootImg, 20, 20*(shootImg.height/shootImg.width), (robot.x+25), (robot.y-20));
+                    shoot.speedY = -15;
+                }
+            }
+            this.shootStar2 = function() {
+                if (shoot2.y < 50) {
+                    shoot2 = new component(shootImg, 20, 20*(shootImg.height/shootImg.width), (robot.x+25), (robot.y-20));
+                    shoot2.speedY = -15;
+                } else if (shoot2.y == 600) {
+                    shoot2 = new component(shootImg, 20, 20*(shootImg.height/shootImg.width), (robot.x+25), (robot.y-20));
+                    shoot2.speedY = -15;
+                }
+            }
+            this.resetShoot = function() {
+                this.speedY = 0;
+                this.y = 600;
             }
         }
         function updateGameArea() {
             gameArea.clear();
             robot.stopMove();
-            if (gameArea.keys && gameArea.keys[37]) {robot.speedX = -2;}
-            if (gameArea.keys && gameArea.keys[39]) {robot.speedX = 2;}
-            if (gameArea.keys && gameArea.keys[32]) {
-                robot.shootStar();
-                if (shoot.y > -100) {
-                    shoot.speedY = -10;
+            // robot movement events
+            if (gameArea.keys && gameArea.keys[37]) {robot.speedX = -10;}
+            if (gameArea.keys && gameArea.keys[39]) {robot.speedX = 10;}
+            // shoot event
+            if (gameArea.shootPress && gameArea.shootPress == true) {
+                if (shoot.y < 300) {
+                    robot.shootStar2();
                 } else {
-                    shoot.speedY = 0;
+                    robot.shootStar();
                 }
-                if (shoot.crashWith(alien)) {
-                    gameArea.stop();
-                }
+                gameArea.shootPress = false;
+            }
+            // stop shoot after screen and reset it down
+            if (shoot.y < -100) {
+                shoot.resetShoot();
+            }
+            if (shoot2.y < -100) {
+                shoot2.resetShoot();
+            }
+            // check if shoot crash with alien
+            if (shoot.crashWith(alien) || shoot2.crashWith(alien)) {
+                shoot.resetShoot();
+                shoot2.resetShoot();
+                gameArea.count -= 1;
+                alien = new component(alienImg, 70, 70*(alienImg.height/alienImg.width), Math.floor((Math.random() * 530)), Math.floor((Math.random() * 250)));
+                console.log(gameArea.count);
+                console.log(alien.x, alien.y);
             }
             robot.newPos();
             robot.update();
@@ -113,7 +179,13 @@
             alien.update();
             shoot.newPos();
             shoot.update();
-            console.log(shoot);
+            shoot2.newPos();
+            shoot2.update();
+            if (gameArea.count == 0) {
+                gameArea.stop();
+                gameArea.clear();
+                gameArea.winDisplay();
+            }
         }
     </script>
 </body>
