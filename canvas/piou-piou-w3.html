@@ -25,7 +25,7 @@
         function startGame() {
             robot = new component(robotImg, 70, 70*(robotImg.height/robotImg.width), 465, 500);
             alien = new component(alienImg, 70, 70*(alienImg.height/alienImg.width), 0, 500);
-            shoot = new component(shootImg, 20, 20*(shootImg.height/shootImg.width), (robot.x+25), (robot.y-20));
+            // shoot = new component(shootImg, 20, 20*(shootImg.height/shootImg.width), (robot.x+25), (robot.y-20));
             gameArea.start();
         }
         var gameArea = {
@@ -38,10 +38,11 @@
                 document.body.insertBefore(this.canvas, document.body.childNodes[2]);
                 this.interval = setInterval(updateGameArea, 20);
                 window.addEventListener('keydown', function(e) {
-                    gameArea.key = e.keyCode;
+                    gameArea.keys = (gameArea.keys || []);
+                    gameArea.keys[e.keyCode] = true;
                 })
                 window.addEventListener('keyup', function(e) {
-                    gameArea.key = false;
+                    gameArea.keys[e.keyCode] = false;
                 })
             },
             clear : function() {
@@ -67,6 +68,10 @@
                 this.x += this.speedX;
                 this.y += this.speedY;
             }
+            this.stopMove = function() {
+                this.speedX = 0;
+                this.speedY = 0;
+            }
             this.crashWith = function(otherObj) {
                 var left = this.x;
                 var right = this.x + (this.width);
@@ -84,26 +89,31 @@
             }
             this.shootStar = function() {
                 shoot = new component(shootImg, 20, 20*(shootImg.height/shootImg.width), (robot.x+25), (robot.y-20));
-                shoot.update();
             }
         }
         function updateGameArea() {
-            if (shoot.crashWith(alien)) {
-                gameArea.stop();
-            } else {
-                gameArea.clear();
-                robot.speedX = 0;
-                robot.speedY = 0;
-                if (gameArea.key && gameArea.key == 37) {robot.speedX = -2;}
-                if (gameArea.key && gameArea.key == 39) {robot.speedX = 2;}
-                if (gameArea.key && gameArea.key == 32) {
-                    robot.shootStar();
-                    console.log('space');
+            gameArea.clear();
+            robot.stopMove();
+            if (gameArea.keys && gameArea.keys[37]) {robot.speedX = -2;}
+            if (gameArea.keys && gameArea.keys[39]) {robot.speedX = 2;}
+            if (gameArea.keys && gameArea.keys[32]) {
+                robot.shootStar();
+                if (shoot.y > -100) {
+                    shoot.speedY = -10;
+                } else {
+                    shoot.speedY = 0;
                 }
-                robot.newPos();
-                robot.update();
-                alien.update();
+                if (shoot.crashWith(alien)) {
+                    gameArea.stop();
+                }
             }
+            robot.newPos();
+            robot.update();
+            alien.newPos();
+            alien.update();
+            shoot.newPos();
+            shoot.update();
+            console.log(shoot);
         }
     </script>
 </body>
