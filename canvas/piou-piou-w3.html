@@ -5,23 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Piou-Piou | 2d shooter</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <!-- <link rel="stylesheet" href="../css/style.css"> -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
     <style>
         * {
+            box-sizing: border-box;
             text-align: center;
             font-family: 'Raleway', sans-serif;
-            font-weight: 700;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #fefefe;
+        }
+        span {
+            display: block;
+        }
+        #menu {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            margin: 20px auto;
+            padding-bottom: 40px;
+            width: 990px;
+            height: 590px;
+            background-color: #000;
+            /* border: 5px solid #555; */
+            color: #fefefe;
+            box-shadow: 1px 1px 4px 0px #000000, -1px 1px 4px 0px #000000;
+        }
+        #game {
+            position: relative;
+            display: block;
+            margin: 20px auto;
+            /* border: 5px solid #555; */
+            box-shadow: 1px 1px 4px 0px #000000, -1px 1px 4px 0px #000000;
+            background-color: #000;
+        }
+        button{
+            align-self: center;
+            margin: 0px 40px;
+            color: #fefefe;
+            padding: 20px 50px;
+            border: 1px solid #fefefe;
+            background: #000;
+            border-radius: 3px;
+            font-weight: 400;
+            font-size: 2em;
+        }
+        button:hover {
+            color: #000;
+            background: #fefefe;
+            cursor: pointer;
+        }
+        #title {
+            align-self: center;
+            padding: 20px 50px;
+            border: 1px solid #fefefe;
+            border-radius: 3px;
         }
         h1 {
+            font-weight: 700;
             font-size: 50px;
+        }
+        #scores {
+            font-weight: 400;
+            font-size: 1.5em;
+            display: none;
+            color: #fefefea9;
+        }
+        #scores:hover {
+            color: #fefefe;
+            cursor: default;
         }
     </style>
 </head>
 <body onload='startMenu()'>
-    <div id="menu" width="1000" height="600">
-        <h1>Robot Shooter 2d | Piou-Piou</h1>
-        <button id='start'>Start</button>
+    <div id="menu">
+        <div id="title">
+            <h1>Robot Shooter 2d | Piou-Piou</h1>
+        </div>
+        <div id="scores">
+            <span>Last scores</span>
+        </div>
+        <button id='start'>start</button>
     </div>
     <script>
         // Robot image
@@ -35,17 +103,19 @@
         shootImg.src = '../img/shooting-star.svg';
 
         var robot, alien, shoot;
+        var scoreTable = [];
 
         function startMenu() {
             document.querySelector('#start').addEventListener('click', () => {
                 document.querySelector('#menu').style.display = 'none';
                 startGame();
+                document.querySelector('#game').style.display = 'block';
             })
         }
         
         function startGame() {
-            robot = new component(robotImg, 70, 70*(robotImg.height/robotImg.width), 465, 500);
-            alien = new component(alienImg, 70, 70*(alienImg.height/alienImg.width), Math.floor((Math.random()*930)+1), Math.floor((Math.random() * 250)+1));
+            robot = new component(robotImg, 70, 70*(robotImg.height/robotImg.width), 465, 495);
+            alien = new component(alienImg, 70, 70*(alienImg.height/alienImg.width), Math.floor((Math.random()*920)+10), Math.floor((Math.random() * 250)+10));
             shoot = new component(shootImg, 20, 20*(shootImg.height/shootImg.width), (robot.x+25), 600);
             shoot2 = new component(shootImg, 20, 20*(shootImg.height/shootImg.width), (robot.x+25), 600);
             gameArea.start();
@@ -53,14 +123,18 @@
         var gameArea = {
             canvas : document.createElement('canvas'),
             start : function() {
-                this.count = 1;
-                this.canvas.width = 1000;
-                this.canvas.height = 600;
+                this.count = 0;
+                this.canvas.width = 990;
+                this.canvas.height = 590;
                 this.context = this.canvas.getContext('2d');
                 this.canvas.id = 'game';
                 document.body.insertBefore(this.canvas, document.body.childNodes[1]);
                 this.interval = setInterval(updateGameArea, 20);
                 gameArea.keys = (gameArea.keys || []);
+                this.startTime = Date.now();
+                this.context.fontWeight = "700";
+                this.context.fillStyle = "#fefefe";
+                this.context.textAlign = 'center';
                 window.addEventListener('keydown', function(e) {
                     gameArea.keys[e.keyCode] = true;
                 })
@@ -77,11 +151,35 @@
             stop : function() {
                 clearInterval(this.interval);
             },
-            winDisplay : function() {
-                this.context.font = "200px Raleway";
-                this.context.fillStyle = "#fefefe";
-                this.context.textAlign = 'center';
-                this.context.fillText("You Win", this.canvas.width/2, this.canvas.height/2+50);
+            displayWin : function() {
+                scoreTable.push(this.time);
+                console.log(scoreTable);
+                this.context.font = "150px Raleway";
+                this.context.fillText("You Win", this.canvas.width/2, this.canvas.height/2-10);
+                this.context.font = "50px Raleway";
+                this.context.fillText('score : '+String((scoreTable[scoreTable.length -1]/1000).toFixed(2))+'s', this.canvas.width/2, this.canvas.height/2+90);
+                setTimeout(() => {
+                    this.clear();
+                    document.querySelector('#game').style.display = "none";
+                    document.querySelector('#start').innerHTML = "restart";
+                    document.querySelector('#menu').style.display = "flex";
+                    document.querySelector('#scores').style.display = 'block';
+                    nextScore = document.createElement('span');
+                    nextScore.innerHTML = String((scoreTable[scoreTable.length -1]/1000).toFixed(2))+'s';
+                    document.querySelector('#scores').insertBefore(nextScore, document.querySelector('#scores').childNodes[2]);
+                    if (document.querySelector('#scores').childNodes.length > 7) {
+                        document.querySelector('#scores').removeChild(document.querySelector('#scores').childNodes[7]);
+                    }
+                }, 2000)
+            },
+            displayScore : function() {
+                this.context.font = "40px Arial";
+                this.context.fillText(String(this.count), 30, 50);
+            },
+            displayTime : function() {
+                this.time = Date.now() - this.startTime;
+                this.context.font = "40px Arial";
+                this.context.fillText((this.time/1000).toFixed(2)+'s', 925, 50);
             }
         }
         function component(img, width, height, x, y) {
@@ -168,10 +266,8 @@
             if (shoot.crashWith(alien) || shoot2.crashWith(alien)) {
                 shoot.resetShoot();
                 shoot2.resetShoot();
-                gameArea.count -= 1;
-                alien = new component(alienImg, 70, 70*(alienImg.height/alienImg.width), Math.floor((Math.random() * 530)), Math.floor((Math.random() * 250)));
-                console.log(gameArea.count);
-                console.log(alien.x, alien.y);
+                gameArea.count += 1;
+                alien = new component(alienImg, 70, 70*(alienImg.height/alienImg.width), Math.floor((Math.random()*920)+10), Math.floor((Math.random() * 250)+10));
             }
             robot.newPos();
             robot.update();
@@ -181,10 +277,12 @@
             shoot.update();
             shoot2.newPos();
             shoot2.update();
-            if (gameArea.count == 0) {
+            gameArea.displayScore();
+            gameArea.displayTime();
+            if (gameArea.count == 10) {
                 gameArea.stop();
                 gameArea.clear();
-                gameArea.winDisplay();
+                gameArea.displayWin();
             }
         }
     </script>

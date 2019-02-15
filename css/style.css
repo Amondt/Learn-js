@@ -23,13 +23,6 @@ body canvas {
   margin: 0 40px;
 }
 
-#game {
-  border: 5px solid #999;
-  background-color: #000;
-  display: block;
-  margin: auto;
-}
-
 #challenge {
   display: flex;
   flex-direction: row;
