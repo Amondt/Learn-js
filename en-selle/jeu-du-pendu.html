@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jeu du pendu</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <h1>Le jeu du pendu</h1>
+    <script>
+        window.onload = () => {
+            game = new Game();
+            while (game.word !== game.guessed && !game.exit) {
+                game.guessLetter();
+            }
+            function Game() {
+                this.word = ['B', 'O', 'N', 'J', 'O', 'U', 'R'];
+                this.guessed = ['','','','','','',''];
+                this.try = '';
+                this.exit = false;
+                this.guessLetter = function () {
+                    this.try = prompt('Entre une lettre');
+                    if (this.try == '0') {
+                        this.exit = true;
+                    }
+                    for (let i = 0; i < this.word.length; i++) {
+                        if (this.try == this.word[i]) {
+                            this.guessed[i] = this.try;
+                        }
+                    }
+                    console.log(game.guessed);
+                    console.log(game.word);
+                    console.log('___________________');
+                }
+            }
+        }
+    </script>
+</body>
+</html>
