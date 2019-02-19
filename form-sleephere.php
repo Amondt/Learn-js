@@ -9,9 +9,19 @@
         $subject = 'test form | email send';
         $body = 'bla bla bla';
 
-        mail($to, $subject, $body);
+        $headers  = 'Form: '.$pseudo.' <'.$email.'>\r\n';
+        $headers .= 'Reply-To: '.$email.'\r\n';
+        $headers .= 'MIME-Version: 1.0\r\n';
+        $headers .= 'Content-type: text/html; charset=utf-8';
 
-        echo('message sent !');
+        $send = mail($to, $subject, $body, $headers);
+
+        if ($send) {
+            echo '</br>';
+            echo 'Your message has been sent!';
+        } else {
+            echo 'error, try again';
+        }
     }
 
 ?>
