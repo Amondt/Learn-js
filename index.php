@@ -1,19 +1,18 @@
 <?php
     if (isset($_POST['name']) && isset($_POST['courriel']) && isset($_POST['message'])) {
 
-        $pseudo = $_POST['name'];
+        $name = $_POST['name'];
         $courriel = $_POST['courriel'];
         $message = $_POST['message'];
 
         $to = 'alexandre.mondt@yahoo.com';
         $subject = 'test form | email send';
-        $body = '$message;';
-        echo '<script>console.log(typeof '.json_encode($message).')</script>';
+        $body = $message;
 
-        // $headers  = 'Form: '.$name.' <'.$courriel.'>\r\n';
-        // $headers .= 'Reply-To: '.$courriel.'\r\n';
-        // $headers .= 'MIME-Version: 1.0\r\n';
-        // $headers .= 'Content-type: text/html; charset=utf-8';
+        $headers  = 'Form: '.$name.' <'.$courriel.'>\r\n';
+        $headers .= 'Reply-To: '.$courriel.'\r\n';
+        $headers .= 'MIME-Version: 1.0\r\n';
+        $headers .= 'Content-type: text/html; charset=utf-8';
 
         $send = mail($to, $subject, $body);
 
@@ -44,42 +43,78 @@
             body {
                 font-family: 'Montserrat', sans-serif;
                 font-weight: 400;
+                background: #FFFAED;
             }
             main {
                 width: 600px;
                 margin: 20px auto;
                 padding: 40px;
+                border-radius: 2px;
+                border: 1px solid #7F7C76;
+                background: #FFFAED;
+                box-shadow: 1px 1px 3px 0 #7F7C76, -1px -1px 3px 0 #7F7C76;
+            }
+            main > p {
                 text-align: center;
-                border: 1px solid #222;
-                border-radius: 3px;
-                background: #C2B280;
             }
             h2 {
-                margin: 10x;
+                margin: 10px;
+                font-weight: 400;
+                font-size: 2.5em;
+                margin-bottom: 50px;
+                text-align: center;
             }
             p {
                 margin: 10px;
             }
             label {
-                display: block;
+                display: inline-block;
+                position: relative;
                 text-align: left;
+                margin: 5px 0;
             }
             input {
                 width: 498px;
                 height: 5vh;
+                font-size: 1em;
+                padding: 10px;
+                font-weight: 400;
+                font-family: 'Montserrat', sans-serif;
+                margin-bottom: 5px;
+                border-radius: 2px;
+                border: 1px solid #7F7C76;
+                box-shadow: 1px 1px 3px 0 #7F7C76, -1px -1px 3px 0 #7F7C76;
             }
             textarea {
                 width: 498px;
+                resize: vertical;
+                max-height: 250px;
+                border-radius: 2px;
+                border: 1px solid #7F7C76;
+                box-shadow: 1px 1px 3px 0 #7F7C76, -1px -1px 3px 0 #7F7C76;
+                margin-bottom: 15px;
             }
             #aideCourriel {
-                position: absolute;
+                display: inline-block;
+                position: relative;
+                float: right;
+                top: 8px;
+                right: 2px;
+            }
+            #btn {
+                background: #B3A189;
+                color: #FFFAED;
+                font-size: 1.4em;
+            }
+            #btn:hover {
+                background: #39261A;
             }
         </style>
     </head>
     <body>
         <main>
             <h2>Contact Us</h2>
-            <p>You want to book ? You got a question ? We'd love to hear from you. Send us a message ans we'll respond as soon as possible.</p>
+            <p>You want to book ? You got a question ? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
             <form action='' method='POST'>
                 <p>
                     <label for="name">Name*</label>
@@ -87,15 +122,15 @@
                 </p>
                 <p>
                     <label for="courriel">Email*</label>
-                    <input type="email" name="courriel" id="courriel" required placeholder="example@domain.com">
                     <span id="aideCourriel"></span>
+                    <input type="email" name="courriel" id="courriel" required placeholder="example@domain.com">
                 </p>
                 <p>
                     <label for="message">Message</label>
-                    <textarea rows="10" cols="50" name="message" id="message"></textarea>
+                    <textarea rows="6" cols="50" name="message" id="message"></textarea>
                 </p>
                 <p>
-                    <input type="submit" value="Send Message">
+                    <input type="submit" id='btn'value="Send Message">
                 </p>
             </form>
         </main>
