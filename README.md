@@ -12,24 +12,21 @@ Exercices Javascript / Html
 
 ## Exercices
 
-- Canvas
+- #### Canvas
+  <br/>
   [<img src="./github-logo.svg" width="20">](https://github.com/Amondt/learn-js/tree/master/canvas)
 
-- Forms
-  [<img src="./github-logo.svg" width="20">]()
+- #### Forms
+  <br/>
+  [<img src="./github-logo.svg" width="20">](https://github.com/Amondt/learn-js/tree/master/forms)
+
+
+
+
+
+
+
   
 - Tim-Berners-Lee
   <br/>
   [<img src="./page.svg" width="20">](https://amondt.github.io/learn-HTML-CSS-MD/Tim-Berners-Lee/index.html) [<img src="./github-logo.svg" width="20">](https://github.com/Amondt/learn-HTML-CSS-MD/tree/master/Tim-Berners-Lee)
-  
-### Série 1
-[link](https://github.com/becodeorg/BXL-Lovelace-3.9/tree/master/parcours/04.1-Javascript/js-exercises-base1)
-
-### Série 2
-[link](https://github.com/becodeorg/BXL-Lovelace-3.9/blob/master/parcours/04.1-Javascript/js-exercices-base2.md)
-
-### Série 3
-[link](https://github.com/becodeorg/BXL-Lovelace-3.9/tree/master/parcours/04.1-Javascript/js-exercises-base3)
-
-### Série 4
-[link](https://github.com/becodeorg/BXL-Lovelace-3.9/tree/master/parcours/04.1-Javascript/js-exercises-base4)
