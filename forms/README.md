@@ -12,4 +12,4 @@ Forms exercices
 
 ## Instructions
 
-[<img src="./page.svg" width="20">](https://openclassrooms.com/fr/courses/3306901-creez-des-pages-web-interactives-avec-javascript/3514956-manipulez-les-formulaires)
+[<img src="../page.svg" width="20">](https://openclassrooms.com/fr/courses/3306901-creez-des-pages-web-interactives-avec-javascript/3514956-manipulez-les-formulaires)

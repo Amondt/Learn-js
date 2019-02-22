@@ -20,6 +20,18 @@ Exercices Javascript / Html
   <br/>
   [<img src="./github-logo.svg" width="20">](https://github.com/Amondt/learn-js/tree/master/forms)
 
-- Tim-Berners-Lee
+- Série 1
   <br/>
-  [<img src="./page.svg" width="20">](https://amondt.github.io/learn-HTML-CSS-MD/Tim-Berners-Lee/index.html) [<img src="./github-logo.svg" width="20">](https://github.com/Amondt/learn-HTML-CSS-MD/tree/master/Tim-Berners-Lee)
+  [<img src="./github-logo.svg" width="20">](https://github.com/Amondt/learn-js/tree/master/serie1)
+
+- Série 2
+  <br/>
+  [<img src="./github-logo.svg" width="20">](https://github.com/Amondt/learn-js/tree/master/serie2)
+
+- Série 3
+  <br/>
+  [<img src="./github-logo.svg" width="20">](https://github.com/Amondt/learn-js/tree/master/serie3)
+
+- Série 4
+  <br/>
+  [<img src="./github-logo.svg" width="20">](https://github.com/Amondt/learn-js/tree/master/serie4)
