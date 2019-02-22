@@ -12,30 +12,30 @@ Exercices Javascript / Html
 
 ## Exercices
 
-- Canvas
-  <br/>
-  [<img src="./github-logo.svg" width="20">](https://github.com/Amondt/learn-js/tree/master/canvas)
+Canvas
+<br/>
+[<img src="./github-logo.svg" width="20">](https://github.com/Amondt/learn-js/tree/master/canvas)
 
-- Forms
-  <br/>
-  [<img src="./github-logo.svg" width="20">](https://github.com/Amondt/learn-js/tree/master/forms)
+Forms
+<br/>
+[<img src="./github-logo.svg" width="20">](https://github.com/Amondt/learn-js/tree/master/forms)
 
-- Série 1
-  <br/>
-  [<img src="./github-logo.svg" width="20">](https://github.com/Amondt/learn-js/tree/master/serie1)
+Série 1
+<br/>
+[<img src="./github-logo.svg" width="20">](https://github.com/Amondt/learn-js/tree/master/serie1)
 
-- Série 2
-  <br/>
-  [<img src="./github-logo.svg" width="20">](https://github.com/Amondt/learn-js/tree/master/serie2)
+Série 2
+<br/>
+[<img src="./github-logo.svg" width="20">](https://github.com/Amondt/learn-js/tree/master/serie2)
 
-- Série 3
-  <br/>
-  [<img src="./github-logo.svg" width="20">](https://github.com/Amondt/learn-js/tree/master/serie3)
+Série 3
+<br/>
+[<img src="./github-logo.svg" width="20">](https://github.com/Amondt/learn-js/tree/master/serie3)
 
-- Série 4
-  <br/>
-  [<img src="./github-logo.svg" width="20">](https://github.com/Amondt/learn-js/tree/master/serie4)
+Série 4
+<br/>
+[<img src="./github-logo.svg" width="20">](https://github.com/Amondt/learn-js/tree/master/serie4)
 
-- Jeu du pendu (wip)
-  <br/>
-  [<img src="./github-logo.svg" width="20">](https://github.com/Amondt/learn-js/tree/master/en-selle)
+Jeu du pendu (wip)
+<br/>
+[<img src="./github-logo.svg" width="20">](https://github.com/Amondt/learn-js/tree/master/en-selle)
