@@ -35,3 +35,7 @@ Exercices Javascript / Html
 - Série 4
   <br/>
   [<img src="./github-logo.svg" width="20">](https://github.com/Amondt/learn-js/tree/master/serie4)
+
+- Jeu du pendu (wip)
+  <br/>
+  [<img src="./github-logo.svg" width="20">](https://github.com/Amondt/learn-js/tree/master/en-selle)
