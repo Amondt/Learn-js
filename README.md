@@ -13,11 +13,9 @@ Exercices Javascript / Html
 ## Exercices
 
 - #### Canvas
-  <br/>
   [<img src="./github-logo.svg" width="20">](https://github.com/Amondt/learn-js/tree/master/canvas)
 
 - #### Forms
-  <br/>
   [<img src="./github-logo.svg" width="20">](https://github.com/Amondt/learn-js/tree/master/forms)
 
 - Tim-Berners-Lee
