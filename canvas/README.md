@@ -10,8 +10,6 @@ Exercices Canvas
 <br/>
 [page](https://amondt.github.io/learn-js/)
 
-## Instructions
-
 # Piou-Piou !
 
 Piou-piou est un jeu de tir réalisé en javascript avec vos nouvelles compétences de dessinateur web (canvas).
