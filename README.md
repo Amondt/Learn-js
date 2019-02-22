@@ -20,13 +20,6 @@ Exercices Javascript / Html
   <br/>
   [<img src="./github-logo.svg" width="20">](https://github.com/Amondt/learn-js/tree/master/forms)
 
-
-
-
-
-
-
-  
 - Tim-Berners-Lee
   <br/>
   [<img src="./page.svg" width="20">](https://amondt.github.io/learn-HTML-CSS-MD/Tim-Berners-Lee/index.html) [<img src="./github-logo.svg" width="20">](https://github.com/Amondt/learn-HTML-CSS-MD/tree/master/Tim-Berners-Lee)
